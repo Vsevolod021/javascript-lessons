@@ -1,0 +1,39 @@
+// while (true) {
+//     var number = prompt('Введите число больше 100');
+
+//     if (number > 100) break;
+//     console.log(number);
+// }
+// alert(number);
+
+do{
+    var number = prompt('Введите число больше 100');
+} while (number <= 100 );
+
+alert(number);
+
+// const number = +prompt('Введите число между 0 и 3', '');
+
+// if (number === 0) {
+//   alert('Вы ввели число 0');
+// }
+
+// if (number === 1) {
+//   alert('Вы ввели число 1');
+// }
+
+// if (number === 2 || number === 3) {
+//   alert('Вы ввели число 2, а может и 3');
+// }
+
+const num = +prompt('Введите число между 0 и 3', '');
+
+switch (num) {
+    case 0: 
+        alert('Вы ввели число 0'); break;
+    case 1: 
+        alert('Вы ввели число 1'); break; 
+    case 2:
+    case 3:
+        alert('Вы ввели число 2, а может и 3'); break;
+}
