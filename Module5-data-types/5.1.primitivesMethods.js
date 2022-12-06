@@ -6,4 +6,4 @@ let str = 'Привет';
 
 str.test = 5;
 
-console.log(str.test);
+console.log(str.test); // ошибка, примиивам нельзя добавлять методы
