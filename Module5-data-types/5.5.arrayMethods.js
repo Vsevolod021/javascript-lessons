@@ -93,7 +93,7 @@ alert(arr.includes(1, 4));
 
 // find
 
-let users = ['alex', 'alex', 'alex', 'peter'];
+// let users = ['alex', 'alex', 'alex', 'peter'];
 /*
 let check = users.findIndex(elem => {
   console.log('hello');
@@ -107,6 +107,58 @@ let check = users.filter(elem => elem == 'alex');
 alert(check);
 */
 
+// Метод map
+/*
+let cars = ['Audi', 'Toyota', 'Cadillac', 'Porsche', 4, 3, 2000, 7];
+
+let carsHoHo = cars.map(elem => elem + 'hoho');
+console.log(cars, carsHoHo);
+let carsLength = cars.map(elem => elem.length);
+console.log(carsLength);
+
+
+cars.sort();
+console.log(cars);
+*/
+
+let numbers = [2, 324,  132, 113, 73, 20912, 111];
+
+// let compareNumeric = (a, b) => a - b; 
+
+// numbers.sort(compareNumeric);
+/*
+numbers.sort((a, b) => a - b);
+console.log(numbers);
+numbers.reverse();
+console.log(numbers);
+*/
+
+// split и join
+/*
+let stack = ['Node.js', 'React', 'Vue.js', 'dotNET'];
+let stackStr =  stack.join(', ');
+console.log(stack);
+console.log(stackStr);
+
+stackStr += ', git';
+
+stack = stackStr.split(', ', 3);
+console.log(stack);
+console.log(stackStr);
+*/
+
+// reduce
+/*
+let arr = [1];
+
+let result = arr.reduceRight((sum, current) => sum + current);
+
+alert(result); // 15
+*/
+
+
+
+
 // arr.splice(start, end, add, ...) - добавляет или удаляет элементы внутри массива
 // arr2 = arr.slice(start, end) - копирует фрагмент массива - ВОЗВРАЩАЕТ В ДРУГОЙ МАССИВ!
 // arrN - arr.concat(arr2, arr3, ...) - копирует массив + доп массивы (эл-ты) - ВОЗВРАЩАЕТ В ДРУГОЙ МАССИВ!
@@ -116,5 +168,13 @@ alert(check);
 // arr.includes(elem, from) - вхождение элемента в массив с from
 // elem = arr.find(function(elem, index, array)) - ВОЗВРАЩАЕТ ПОДХОДЯЩИЙ УСЛОВИЮ ЭЛЕМЕНТ!
 // arr2 = arr.filter(funcction(elem, index, array)) - копирует все элементы, подходящие условию - ВОЗВРАЩЕТ В ДРУГОЙ МАССИВ!  
-
+// arr2 = arr.map(funcction(elem, index, array)) - копирует возвращаемое значание - ВОЗВРАЩАЕТ В ДРУГОЙ МАССИВ!
+// arr.sort(function()) - сортировка массива, function() задает правило сортировки
+// arr.reverse() - меняет порядок элементов
+// str = arr.join(delim) - соединяет массив в строку с разграничителем delim - ВОЗВРАЩАЕТ В ДРУГУЮ СТРОКУ!
+// arr = str.split(glue) - разбивает строку, склеенную glue, на элементы массива - ВОЗВРАЩАЕТ В ДРУГОЙ МАССИВ!
+// result = arr.reduce(function(accumulator, elem, index, array), initial); - перебор массива с учетом предыдущего значения
+//    initial - какое-то начальное значение (скажем, sum = 0), accumulator - результат предыдущего вызова
+//        ВОЗВРАЩАЕТ РЕЗУЛЬТАТ ПЕРЕБОРА!
+// Array.isArray(arg) - массив ли данный объект
  
