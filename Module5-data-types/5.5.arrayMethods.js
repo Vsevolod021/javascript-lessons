@@ -156,10 +156,147 @@ let result = arr.reduceRight((sum, current) => sum + current);
 alert(result); // 15
 */
 
+// this context
+/*
+let army = {
+  minAge: 18,
+  maxAge: 27,
+  canJoin(user) {
+    return user.age >= this.minAge && user.age <= this.maxAge;
+  },
+};
+
+let users = [
+  {age: 16},
+  {age: 20},
+  {age: 23},
+  {age: 30}
+];
+
+let soldiers = users.filter(army.canJoin, army);
+console.log(soldiers);
+*/
 
 
+// TASKS
+// task #1
+/*
+function camelize(str) {
+  let arr = str.split('-');
+  arr = arr.map((elem, index) => {
+    if (index) {
+      return (elem[0].toUpperCase() + elem.slice(1));
+    }
+    return (elem[0] + elem.slice(1));
+  });
+  return arr.join('');
+} 
 
-// arr.splice(start, end, add, ...) - добавляет или удаляет элементы внутри массива
+console.log(camelize("background-color"));
+console.log(camelize("list-style-image"));
+console.log(camelize("-webkit-transition"));
+console.log(camelize('background-color'));
+*/
+
+// task #2
+/*
+function filterRange(arr, a, b)  {
+  return arr.filter(elem => elem >= Math.min(a, b) && elem <= Math.max(a, b));
+}
+
+let arr = [5, 3, 8, 1];
+
+let filtered = filterRange(arr, 1, 4);
+
+alert( filtered ); // 3,1 (совпадающие значения)
+
+alert( arr ); // 5,3,8,1 (без изменений)
+*/
+
+
+// task #3
+/*
+function filterRangeInPlace(arr, a, b) {
+
+  for (let i = 0; i < arr.length; i++) {
+    let val = arr[i];
+
+    // удалить, если за пределами интервала
+    if (val < a || val > b) {
+      arr.splice(i, 1);
+      i--;
+    }
+  }
+
+}
+
+let arr = [5, 3, 8, 1];
+
+filterRangeInPlace(arr, 1, 4); // удалены числа вне диапазона 1..4
+
+alert( arr ); // [3, 1]
+*/
+
+// task #4
+/*
+let arr = [5, 2, -1, 14, 17];
+
+arr.sort((a, b) => b - a);
+alert(arr);
+*/
+
+// task #5
+/*
+let arr = ["HTML", "JavaScript", "CSS"];
+
+function copySorted(arr) {
+  return arr.slice().copy();
+}
+
+let sorted = copySorted(arr);
+alert( sorted ); // CSS, HTML, JavaScript
+alert( arr ); // HTML, JavaScript, CSS (без изменений)
+*/
+
+// task #6
+function Calculator () {
+    this.methods = {
+        '+': (a, b) => a + b,
+        '-': (a, b) => a - b,
+    };
+
+    this.calculate = function(str) {
+        a = +str.split(' ')[0];
+        b = +str.split(' ')[2];
+        oper = str.split(' ')[1];
+
+        if (oper == '+') {
+            return a + b;
+        } else if (oper == '-') {
+            return a - b;
+        }
+
+        if (oper in this.methods) {
+            return this.methods[oper](a, b);
+        }
+    };
+
+    this.addMethod = function(oper, method) {
+        this.methods[oper] = method;
+    };
+}
+
+let powerCalc = new Calculator;
+powerCalc.addMethod("*", (a, b) => a * b);
+powerCalc.addMethod("/", (a, b) => a / b);
+powerCalc.addMethod("**", (a, b) => a ** b);
+
+let result = powerCalc.calculate("2 ** 3");
+let result1 = powerCalc.calculate('1 + 3')
+alert( result1 ); // 8
+
+
+// arr.splice(start, deleteCount, add, ...) - добавляет или удаляет элементы внутри массива, deleteCount - кол-воо удаляемых элементов
 // arr2 = arr.slice(start, end) - копирует фрагмент массива - ВОЗВРАЩАЕТ В ДРУГОЙ МАССИВ!
 // arrN - arr.concat(arr2, arr3, ...) - копирует массив + доп массивы (эл-ты) - ВОЗВРАЩАЕТ В ДРУГОЙ МАССИВ!
 // arr.forEach(function(elem, index, array)) - цикл массива
@@ -177,4 +314,3 @@ alert(result); // 15
 //    initial - какое-то начальное значение (скажем, sum = 0), accumulator - результат предыдущего вызова
 //        ВОЗВРАЩАЕТ РЕЗУЛЬТАТ ПЕРЕБОРА!
 // Array.isArray(arg) - массив ли данный объект
- 

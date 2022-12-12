@@ -1,0 +1,5 @@
+{
+    "prettier.bracketSameLine": true,
+    "prettier.requireConfig": true,
+    "prettier.tabWidth": 4
+}
