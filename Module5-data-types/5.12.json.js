@@ -1,3 +1,5 @@
+
+
 // let resume = {
 //     name: 'John',
 //     age: 28,
@@ -80,32 +82,32 @@ alert( JSON.stringify(conf) );
 
 
 // task #1
-let user = {
-  name: 'Василий Иванович',
-  age: 35
-};
+// let user = {
+//   name: 'Василий Иванович',
+//   age: 35
+// };
 
-let str = JSON.stringify(user);
-// alert(str);
-let userCopy = JSON.parse(str);
-// alert(userCopy);
+// let str = JSON.stringify(user);
+// // alert(str);
+// let userCopy = JSON.parse(str);
+// // alert(userCopy);
 
 
-// task #2
-let room = {
-  number: 23
-};
+// // task #2
+// let room = {
+//   number: 23
+// };
 
-let meetup = {
-  title: "Совещание",
-  occupiedBy: [{name: "Иванов"}, {name: "Петров"}],
-  place: room
-};
+// let meetup = {
+//   title: "Совещание",
+//   occupiedBy: [{name: "Иванов"}, {name: "Петров"}],
+//   place: room
+// };
 
-// цикличные ссылки
-room.occupiedBy = meetup;
-meetup.self = meetup;
+// // цикличные ссылки
+// room.occupiedBy = meetup;
+// meetup.self = meetup;
 
-alert( JSON.stringify(meetup, function replacer(key, value) {
-  return (key != '' && value == meetup) ? undefined : value;
-}, '    '));
+// alert( JSON.stringify(meetup, function replacer(key, value) {
+//   return (key != '' && value == meetup) ? undefined : value;
+// }, '    '));

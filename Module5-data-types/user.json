@@ -1,0 +1,21 @@
+{
+    "name": "Vsevolod",
+    "age": 22,
+    "education": [
+        {
+            "university": "KAI",
+            "speciality": "electronics and nanoelectronics",
+            "degree": "balchelor"
+        },
+        {
+            "university": "KAI",
+            "specialiti": "informatics and computing technique",
+            "degree": "master"
+        }
+    ],
+    "career": {
+        "profession": "frontend-developer",
+        "working experience": "6 month",
+        "position": "junior"
+    }
+}
