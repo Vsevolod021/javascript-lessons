@@ -66,18 +66,64 @@ let fact = function(n) {
 
 // alert(fact(3));
 
-let sayHey = function(who) {
+let sayHey = function reserveFunc(who) {
   if (who) {
     alert(`Hello, ${who}`);
   } else {
-    sayHey("Guest"); // Ошибка: sayHi не является функцией
+    reserveFunc("Guest"); // Ошибка: sayHi не является функцией
   }
 };
 
-sayHey();
+// sayHey();
+// alert(sayHey.name); // reserveFunc
 
-let welcome = sayHey;
-sayHey = null;
+// let welcome = sayHey;
+// sayHey = null;
 
-welcome(); // Ошибка, вложенный вызов sayHi больше не работает!
+// welcome(); // Ошибка, вложенный вызов sayHi больше не работает!
 
+
+function makeCounter() {
+
+    function counter() {
+        return counter.count;    
+    }
+
+    counter.set = function(value) {
+        counter.count = value;
+    }
+
+    counter.decrase = function() {
+        counter.count--;
+    }
+
+    counter.count = 0;
+
+    return counter;
+}
+
+// let calc = makeCounter();
+// calc.set(4);
+// alert(calc());
+// calc.decrase();
+// alert(calc());
+// alert(calc.count);
+
+let sum = function(num) {
+  let count = num;
+
+  function f(nextNum) {
+    console.log(nextNum);
+    count+=nextNum;
+    return f;
+  };
+
+  f.toString = function() {
+    console.log(count)
+    return count ?? 4;
+  }
+
+  return f;
+}
+
+alert(sum());
