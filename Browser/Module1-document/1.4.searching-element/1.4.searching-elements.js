@@ -1,0 +1,1 @@
+divElem.style.color = 'red';

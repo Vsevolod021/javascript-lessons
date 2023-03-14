@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="sel" id="opt">
+        <option value="fb">fb</option>
+        <option value="gg">gg</option>
+    </select>
+    <div class="outer">
+        <div class="inner">
+            <div class="subinner">sdgb</div>
+        </div>
+    </div>
+    <script>
+        let select = document.getElementById('opt');
+        select.outerHTML = '<p>elem</p>';
+        let inner = document.querySelector('.inner');
+        // inner.outerHTML = '<input/>'
+        // inner.outerHTML = '<p>sfvfes</p>';
+        let subInner = document.querySelector('.subinner');
+        subInner.innerHTML = 'sbdfb';
+        subInner.innerHTML += 'sbdfbsfbsfb';
+    </script>
+</body>
+</html>

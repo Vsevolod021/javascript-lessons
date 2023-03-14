@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="class" something="class">
+        class
+        <input type="checkbox" name="" id="">
+        <div data-animal="tiger" data-type="hunter" id="tiger">Tiger</div>
+        <div data-widget-name="menu">Choose the genre</div>
+    </div>
+    <ul>
+        <li><a href="http://google.com">http://google.com</a></li>
+        <li><a href="/tutorial">/tutorial.html</a></li>
+        <li><a href="local/path">local/path</a></li>
+        <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+        <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+        <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+    </ul>
+    <script>
+        /*let div = document.querySelector('.class');
+        let input = document.querySelector('input');
+        let tiger = document.querySelector('[data-animal]'); */
+    </script>
+    <script>
+        let widget = document.querySelector('[data-widget-name]');
+        console.log(widget.dataset.widgetName);
+        console.log(widget.getAttribute('data-widget-name'));
+    </script>
+    <script>
+        for (let elem of document.querySelectorAll('li>a')) {
+            let hrefValue = elem.getAttribute('href');
+
+            if (hrefValue.includes('://') && !hrefValue.startsWith('http://internal.com')) {
+                elem.setAttribute('style', 'color: orange');
+            }
+        }
+    </script>
+</body>
+</html>
