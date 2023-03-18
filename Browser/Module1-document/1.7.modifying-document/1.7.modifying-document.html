@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+
+    <div class="first">first</div>
+    <div class="second">second</div>
+    <ol id="elem">
+        <li>Привет</li>
+        <li>Мир</li>
+    </ol>
+
+    <ul id="container">
+        <li>
+            Животные
+            <ul>
+                <li>
+                    Млекопитающие
+                    <ul>
+                        <li>Коровы</li>
+                        <li>Ослы</li>
+                        <li>Собаки</li>
+                        <li>Тигры</li>
+                    </ul>
+                </li>
+                <li>
+                    Другие
+                    <ul>
+                        <li>Змеи</li>
+                        <li>Птицы</li>
+                        <li>Ящерицы</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            Рыбы
+            <ul>
+                <li>
+                    Аквариумные
+                    <ul>
+                        <li>Гуппи</li>
+                        <li>Скалярии</li>
+                    </ul>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    Морские
+                    <ul>
+                        <li>Морская форель</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+
+    -->
+    <ul id="ul">
+        <li id="one">1</li>
+        <li id="two">4</li>
+    </ul>
+    <script>
+        // let elem = document.createElement('div');
+        // document.body.innerHTML += elem;
+    </script>
+    <script>
+        // function clear(elem) {
+        //     elem.replaceWith(elem.cloneNode(false));
+
+        // }
+
+        // clear(document.querySelector('#elem'));
+    </script>
+    <script>
+        // let ul = document.querySelector('ul');
+        // for (let i=0; i<5; i++) {
+        //     let text = prompt(`Пункт номер ${i+1}`);
+        //     let elem = document.createElement('li');
+        //     elem.textContent = text;
+        //     ul.append(elem);
+        // }
+    </script>
+    <script>
+        // let data = {
+        //     "Рыбы": {
+        //         "форель": {},
+        //         "лосось": {}
+        //     },
+
+        //     "Деревья": {
+        //         "Огромные": {
+        //             "секвойя": {},
+        //             "дуб": {}
+        //         },
+        //         "Цветковые": {
+        //             "яблоня": {},
+        //             "магнолия": {}
+        //         }
+        //     }
+        // };
+
+        // let container = document.getElementById('container');
+
+        // function createTree(container, data) {
+        //     for (let key of Object.keys(data)) {
+        //         container.insertAdjacentHTML('beforeend', `<li>${key}</li>`)
+
+        //         if (Object.keys(data[key]).length) {
+        //             let ul = document.createElement('ul');
+        //             container.append(ul);
+        //             createTree(ul, data[key]);
+        //         }
+        //     }
+        // }
+
+        // createTree(container, data);
+
+        // console.log(Object.keys(data).length);
+    </script>
+    <script>
+        // const lis = document.getElementsByTagName('li');
+
+        // for (let li of lis) {
+        //     const lowerLisLen = li.getElementsByTagName('li').length;
+
+        //     if (!lowerLisLen) continue;
+
+        //     li.firstChild.textContent += ' [' + lowerLisLen + ']';
+        // }
+    </script>
+    <script>
+        one.insertAdjacentHTML('afterend', '<li>2</li><li>3</li>');
+    </script>
+    <!-- <script src="1.7.modifying-document.js"></script> -->
+</body>
+</html>
