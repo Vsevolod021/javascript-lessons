@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="elem">Hello from H1</h1>
+    <button onclick="alert('click')" id="button">This is button</button>
+    <script>
+        // elem.addEventListener('hello', event => {
+        //     alert(event.detail.name);
+        // });
+
+        // elem.dispatchEvent(new CustomEvent('hello', {
+        //     detail: {name: 'Tag'}
+        // }));
+
+        document.addEventListener('hello', event => alert(event.target.tagName));
+
+        elem.dispatchEvent(new Event('hello', { bubbles: true }));
+
+            let event = new Event('click');
+            button.dispatchEvent(event);
+    </script>
+</body>
+</html>
