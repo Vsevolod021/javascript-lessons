@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        document.documentElement.onkeydown = e => {
+            console.log(e.metaKey)
+            if (e.code == 'NumpadDivide') {
+                alert('Ed sheeran say you hello and thnks for album istening')
+            }
+            if (e.code == 'Enter' && e.shiftKey) {
+                alert('new string');
+            }
+            console.log(e.repeat);
+        }
+    </script> -->
+    <button id="button">Click to load func</button>
+    <script>
+        let pressed = new Set();
+
+        document.onkeydown = (event) => {
+            pressed.add(event.code);
+        };
+
+        document.onkeyup = (event) => {
+            pressed.delete(event.code);
+        };
+
+        function runOnKeys(func, ...keys) {
+            console.log(pressed);
+            for (let key of keys) {
+                if (!pressed.has(key)) {
+                    return;
+                };
+            }
+            pressed.clear();
+            func();
+        };
+
+        button.onclick = () => {
+            runOnKeys(
+                () => alert("Привет!"),
+                "KeyQ",
+                "KeyW"
+            );
+        };
+
+    </script>
+</body>
+</html>

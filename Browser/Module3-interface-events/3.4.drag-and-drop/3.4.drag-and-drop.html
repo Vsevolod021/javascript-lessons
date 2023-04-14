@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #baloon {
+            width: 200px;
+            height: 200px;
+            margin-top: 100px;
+            margin-left: 200px;
+            border: 1px solid black;
+        }
+
+        #ball {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid black;
+            position: absolute;
+            z-index: 1000;
+        }
+        .dragged {
+            background-color: pink;
+            cursor: move;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="baloon" class="droppable"></div>
+    <img src="ball.svg" alt="ball" id="ball" draggable="false">
+    <script>
+        ball.onmousedown = function(event) { // (1) отследить нажатие
+            let currentDroppable = null;
+
+            let shiftX = event.clientX - ball.getBoundingClientRect().left;
+            let shiftY = event.clientY - ball.getBoundingClientRect().top;
+
+            ball.classList.toggle('dragged');
+            // переместим в body, чтобы мяч был точно не внутри position:relative
+            document.body.prepend(ball);
+
+            // и установим абсолютно спозиционированный мяч под курсор
+            moveAt(event.pageX, event.pageY);
+
+            // передвинуть мяч под координаты курсора
+            // и сдвинуть на половину ширины/высоты для центрированияs
+            function moveAt(pageX, pageY) {
+
+                ball.style.left = pageX - shiftX + 'px';
+                ball.style.top = pageY - shiftY + 'px';
+            }
+
+            function onMouseMove(event) {
+                moveAt(event.pageX, event.pageY);
+
+                ball.hidden = true;
+                let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+                ball.hidden = false;
+
+                // событие mousemove может произойти и когда указатель за пределами окна
+                // (мяч перетащили за пределы экрана)
+
+                // если clientX/clientY за пределами окна, elementFromPoint вернёт null
+                if (!elemBelow) return;
+
+                // потенциальные цели переноса помечены классом droppable (может быть и другая логика)
+                console.log(currentDroppable);
+                let droppableBelow = elemBelow.closest('.droppable');
+                if (currentDroppable != droppableBelow) {
+                    // мы либо залетаем на цель, либо улетаем из неё
+                    // внимание: оба значения могут быть null
+                    //   currentDroppable=null,
+                    //     если мы были не над droppable до этого события (например, над пустым пространством)
+                    //   droppableBelow=null,
+                    //     если мы не над droppable именно сейчас, во время этого события
+
+                    if (currentDroppable) {
+                        // логика обработки процесса "вылета" из droppable (удаляем подсветку)
+                        leaveDroppable(currentDroppable);
+                    }
+                    currentDroppable = droppableBelow;
+                    if (currentDroppable) {
+                        // логика обработки процесса, когда мы "влетаем" в элемент droppable
+                        enterDroppable(currentDroppable);
+                    }
+                }
+            }
+
+            function enterDroppable(currentDroppable) {
+                currentDroppable.innerHTML = "<h1>Oh! Hello! Come here. Don't be shy</h1>"
+            }
+
+            function leaveDroppable(currentDroppable) {
+                currentDroppable.innerHTML = '<h1>Bye Bye, Friend</h1>';
+            }
+            // (3) перемещать по экрану
+            document.addEventListener('mousemove', onMouseMove);
+
+            // (4) положить мяч, удалить более ненужные обработчики событий
+            ball.onmouseup = function() {
+                ball.classList.toggle('dragged');
+                document.removeEventListener('mousemove', onMouseMove);
+                ball.onmouseup = null;
+            };
+        };
+    </script>
+</body>
+</html>
