@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .page-container {
+            height: 100%;
+        }
+
+        header, aside, article, footer {
+            border: 1px solid black;
+        }
+
+        header {
+            position: sticky;
+            z-index: 5;
+            height: 60px;
+            top: 0;
+            left: 0;
+            background-color: white;
+        }
+
+        main {
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            gap: 20px;
+            margin: 20px;
+        }
+
+        article {
+            height: 1500px;
+            max-width: 900px;
+        }
+
+        aside {
+            max-width: 200px;
+            position: sticky;
+            bottom: 80px;
+            height: 700px;
+        }
+
+        footer {
+            height: 60px;
+        }
+
+        .aside_bottom-sticky {
+            bottom: 80px;
+        }
+
+        .main_bottom-sticky {
+            align-items: start;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <header></header>
+        <main>
+            <article>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet illo ut expedita. Porro eos maiores vel ea impedit! Sequi quas quasi, cum magnam itaque accusamus inventore illum cumque doloremque delectus.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde recusandae natus maxime consequatur veniam dolorum. Repellendus non accusantium odit asperiores ut sunt dicta sint libero. Corrupti, in amet. Aperiam, repellendus!
+                Praesentium dolore commodi facere aliquam veniam ipsa eligendi est aliquid dolores ex laboriosam aperiam asperiores tempora facilis culpa, ducimus omnis porro. Suscipit ut nulla maiores minima rem ipsum explicabo eveniet!
+                Tempore error quam, doloribus mollitia a est quod rerum non reprehenderit blanditiis ea velit. Architecto corporis cumque velit, laborum pariatur tempora accusamus veritatis autem vero ab maxime exercitationem quos et.
+                Maxime facilis excepturi ad quae tempora beatae et sapiente dignissimos, consectetur impedit temporibus possimus libero dolor consequuntur saepe amet labore, quia ea pariatur molestiae ut! Nulla neque perferendis minima qui?
+                Repellat, placeat repellendus quidem sapiente architecto harum distinctio temporibus. Dolorum dolore obcaecati illum iusto ratione, nam, natus corporis laboriosam voluptate officia praesentium eaque vero delectus consequatur similique ex dolor deleniti.
+                Quidem, rerum facilis, tempora nobis eaque sapiente maxime fugit provident fuga earum quibusdam nisi hic nemo voluptas aspernatur? Ipsa eius amet ab quod impedit laborum quaerat ea alias beatae debitis!
+                Voluptas dolores deserunt officiis, magnam maxime aut. Voluptatum illum laborum itaque a, recusandae similique laudantium unde nulla sed facilis, non nesciunt ducimus, et excepturi ad rem laboriosam minima. Veniam, voluptas.
+                Laudantium magni quidem eum consequatur, quasi fuga nesciunt architecto consequuntur nihil ad, ducimus, veniam voluptates nemo quia ab? Eligendi similique fugiat delectus id reiciendis commodi in, sequi voluptas deserunt nisi?
+                Aliquid totam ut provident quos eos. Doloremque assumenda temporibus delectus? Tempore, quidem facilis. Magnam assumenda delectus officia culpa iure unde consectetur impedit quisquam aperiam, quam, magni obcaecati nihil, vel doloribus.
+                Totam, odit! Nam quas neque enim, architecto ducimus itaque ea, ex magnam nesciunt at nemo quasi a error soluta aliquid quam facere nostrum atque temporibus doloremque magni accusantium. Dolorem, amet!
+            </article>
+            <aside>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, sequi facere quas et, est possimus magni vero beatae, id voluptatibus ut. Assumenda excepturi pariatur minima debitis ipsam minus, provident rem?
+            </aside>
+        </main>
+        <footer></footer>
+    </div>
+    <script>
+        const aside = document.querySelector('aside');
+        const main = document.querySelector('main');
+
+        let scrollToTop = document.documentElement.scrollTop;
+
+        window.addEventListener('scroll', (e) => {
+            let newScrollToTop = document.documentElement.scrollTop;
+            if (newScrollToTop > scrollToTop) {
+                aside.classList.add('aside_bottom-sticky');
+                main.classList.add('main_bottom-sticky');
+            } else {
+                aside.classList.remove('aside_bottom-sticky');
+                main.classList.remove('main_bottom-sticky');
+            }
+
+            scrollToTop = newScrollToTop;
+        });
+    </script>
+</body>
+</html>

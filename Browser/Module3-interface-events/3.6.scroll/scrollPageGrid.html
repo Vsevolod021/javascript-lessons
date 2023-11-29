@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        margin: 0;
+    }
+
+    .page-container {
+        height: 100%;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr minmax(350px, 900px) minmax(150px, 300px) 1fr;
+        grid-template-rows: 60px 1000px 60px;
+        grid-template-areas:
+            "header header header header"
+            ". main aside ."
+            "footer footer footer footer";
+    }
+
+    header, main, aside, footer {
+        border: 1px solid black;
+    }
+
+    header {
+        grid-area: header;
+    }
+
+    main {
+        grid-area: main;
+    }
+
+    aside {
+        grid-area: aside;
+        max-height: 500px;
+    }
+
+    footer {
+        grid-area: footer;
+    }
+
+    header, footer {
+        background-color: black;
+    }
+
+    .header__content {
+        margin: 0 auto;
+        height: 100%;
+        background-color: white;
+        max-width: 1220px;
+
+        @media (max-width: 1260px) {
+            margin: 0 20px;
+        }
+    }
+</style>
+<body>
+    <div class="page-container">
+        <header class="header">
+            <div class="header__content"></div>
+        </header>
+        <main>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti ratione itaque voluptatibus sapiente expedita natus quos quia cum nemo repellat dolores illum quam, libero distinctio quibusdam, temporibus esse ea quod.
+        </main>
+        <aside>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia debitis optio repudiandae natus eligendi voluptatum voluptates sequi alias libero eveniet exercitationem, officiis numquam magnam at illum perferendis eius vel dolor.
+        </aside>
+        <footer></footer>
+    </div>
+
+</body>
+</html>
