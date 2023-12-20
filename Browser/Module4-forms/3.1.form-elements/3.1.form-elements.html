@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    form {
+      margin-top: 50px; 
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <form action="" name="f">
+    <input type="text" name="login">
+    <input type="password">
+    <input type="checkbox">
+  </form>
+
+  <form action="" name="g" multiple>
+    <select name="select" id="select">
+      <option value="no1">no1</option>
+      <option value="no2">no2</option>
+      <option value="no3">no3</option>
+      <option value="no4">no4</option>
+      <option value="no5">no5</option>
+    </select>
+   
+    <select id="genres">
+      <option value="rock">Рок</option>
+      <option value="blues" selected>Блюз</option>
+    </select> 
+  </form>
+
+  
+  <script>
+    const genres = document.forms.g.genres;
+
+    let newGenre = new Option('Кантри', 'Country', true, true);
+
+    genres.appendChild(newGenre);
+  </script>
+</body>
+</html>

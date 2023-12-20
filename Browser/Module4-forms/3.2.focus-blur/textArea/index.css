@@ -1,0 +1,50 @@
+.div-textarea, #textarea {
+  width: 300px;
+  height: 200px;
+}
+
+.div-textarea {
+  border: 2px dashed red;
+}
+
+.quadrant {
+  margin: 100px;
+
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 120px);
+}
+
+.quadrant__item:nth-child(1) {
+  background: gray;
+}
+.quadrant__item:nth-child(2) {
+  background: blue;
+}
+.quadrant__item:nth-child(3) {
+  background: sandybrown;
+}
+.quadrant__item:nth-child(4) {
+  background: yellow;
+}
+.quadrant__item:nth-child(5) {
+  background: purple;
+}
+.quadrant__item:nth-child(6) {
+  background: lightblue;
+}
+.quadrant__item:nth-child(7) {
+  background: brown;
+}
+.quadrant__item:nth-child(8) {
+  background: orange;
+}
+.quadrant__item:nth-child(9) {
+  background: green;
+}
+
+.quadrant>#textarea {
+  width: 200px;
+  height: 150px;
+}

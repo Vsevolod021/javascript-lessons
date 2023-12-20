@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    #mouse {
+      display: inline-block;
+      cursor: pointer;
+      margin: 0;
+    }
+
+    #mouse:focus {
+      outline: 1px dashed black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <p>Кликните по "изображению" мыши и перемещайте её с помощью клавиш со стрелками.</p>
+
+  <pre id="mouse" tabindex="0">
+ _   _
+(q\_/p)
+ /. .\
+=\_t_/=   __
+ /   \   (
+((   ))   )
+/\) (/\  /
+\  Y  /-'
+ nn^nn
+</pre>
+
+
+  <script>
+    const mouse = document.getElementById('mouse');
+
+    const mouseWidth = mouse.clientWidth;
+    const mouseHeight = mouse.clientHeight;
+
+    let currentMarginLeft = 0;
+    let currentMarginTop = 0;
+
+    mouse.onfocus = () => {
+      const updateMargin = () => {
+        mouse.style.marginLeft = `${currentMarginLeft}px`;
+        mouse.style.marginTop = `${currentMarginTop}px`;
+      }
+
+      mouse.onkeydown = (e) => {
+        switch(e.code) {
+          case 'ArrowUp': 
+            currentMarginTop-=mouseHeight;
+            break;
+          case 'ArrowDown': 
+            currentMarginTop+= mouseHeight; 
+            break;
+          case 'ArrowLeft': 
+            currentMarginLeft-=mouseWidth; 
+            break;
+          case 'ArrowRight': 
+            currentMarginLeft+=mouseWidth; 
+            break; 
+        }
+
+        updateMargin();        
+      };
+    }
+  </script>
+
+</body>
+
+</html>

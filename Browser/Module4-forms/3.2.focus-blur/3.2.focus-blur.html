@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .error {
+      color: red;
+      visibility: hidden;
+    }
+
+    .error_visible {
+      visibility: visible;
+    }
+
+    .div-textarea, #textarea {
+      width: 300px;
+      height: 200px;
+    }
+
+    .div-textarea {
+      border: 2px dashed red;
+    }
+  </style>
+</head>
+<body>
+  <!-- <label for="email">Почта</label><input type="email" name="email">
+  <div class="error">Введите корректный email</div> -->
+
+
+  <!-- <script>
+    const email = document.querySelector('input[name="email"]');
+    const error = document.querySelector('.error');
+
+    email.onblur = () => {
+      if (!email.value.includes('@')) {
+        error.classList.add('error_visible');
+      };
+    }
+
+    email.onfocus = () => {
+      error.classList.remove('error_visible');
+    }
+
+    setTimeout(() => alert('hello, future middle'), 5000);
+
+
+  </script> -->  
+  
+  <div class="div-textarea" tabindex="1"></div>
+
+  <script>
+    const divTextArea = document.querySelector('.div-textarea');
+
+    let textArea;
+
+    let value = '';
+
+    divTextArea.onclick = () => {
+      onStartEdit();
+    }
+
+    onEndEdit = () => {
+      textArea.replaceWith(divTextArea);
+
+      value = textArea.value;
+      divTextArea.innerHTML = value;
+    };
+
+    onStartEdit = () => {
+      textArea = document.createElement('textarea');
+      textArea.id = 'textarea';
+      textArea.value = value;
+
+      divTextArea.replaceWith(textArea);
+
+      textArea.focus();
+
+      textArea.onblur = () => {
+        onEndEdit();
+      }
+    };
+  </script>
+</body>
+</html>
